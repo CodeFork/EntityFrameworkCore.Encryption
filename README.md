@@ -1,2 +1,2 @@
 # EntityFrameworkCore.Encryption
-A encryption layer for EntityFrameworkCore.
+An encryption layer for EntityFrameworkCore.
