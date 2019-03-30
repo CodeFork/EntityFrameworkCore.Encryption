@@ -16,22 +16,50 @@ namespace EntityFrameworkCore.Encryption
         }
 
         /// <inheritdoc />
-        /// Acknowledgements: Implementation was inspired by: https://stackoverflow.com/a/41344959 (THANKS)
         public string Encrypt<T>(T obj)
         {
-            byte[] result;
             var buffer = ObjectToByteArray(obj);
+            var byteResult = PerformCryptoAlgorithm(buffer, aes => aes.CreateEncryptor(aes.Key, aes.IV));
+
+            return Convert.ToBase64String(byteResult);
+        }
+
+        /// <inheritdoc />
+        public T Decrypt<T>(string obj)
+        {
+            try
+            {
+                var data = Convert.FromBase64String(obj);
+                var byteResult = PerformCryptoAlgorithm(data, aes => aes.CreateDecryptor(aes.Key, aes.IV));
+
+                return (T) ByteArrayToObject(byteResult);
+            }
+            catch (Exception ex)
+            {
+                throw new DecryptionException("Error decrypting data. See innerException for details", ex);
+            }
+        }
+
+        /// Acknowledgements: Implementation was inspired by: https://stackoverflow.com/a/41344959 (THANKS)
+        private byte[] PerformCryptoAlgorithm(byte[] data, Func<Aes, ICryptoTransform> createTransformFunc)
+        {
+            byte[] result;
 
             using (var aes = Aes.Create())
             {
+                if (aes == null)
+                {
+                    throw new InvalidOperationException("Excepted valid aes instance");
+                }
+
                 aes.Key = Convert.FromBase64String(_options.Key);
                 aes.IV = Convert.FromBase64String(_options.InitializationVector);
 
-                using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+                using (var transform = createTransformFunc(aes))
                 using (var resultStream = new MemoryStream())
                 {
-                    using (var aesStream = new CryptoStream(resultStream, encryptor, CryptoStreamMode.Write))
-                    using (var plainStream = new MemoryStream(buffer))
+                    using (var aesStream = new CryptoStream(resultStream, transform, CryptoStreamMode.Write))
+                    using (var plainStream = new MemoryStream(data))
                     {
                         plainStream.CopyTo(aesStream);
                     }
@@ -40,35 +68,8 @@ namespace EntityFrameworkCore.Encryption
                 }
             }
 
-            return Convert.ToBase64String(result);
-        }
-
-        /// <inheritdoc />
-        /// Acknowledgements: Implementation was inspired by: https://stackoverflow.com/a/41344959 (THANKS)
-        public T Decrypt<T>(string obj)
-        {
-            T result;
-            using (var aes = Aes.Create())
-            {
-                aes.Key = Convert.FromBase64String(_options.Key);
-                aes.IV = Convert.FromBase64String(_options.InitializationVector);
-
-                using (var decryptor = aes.CreateDecryptor(aes.Key, aes.IV))
-                using (var resultStream = new MemoryStream())
-                {
-                    using (var aesStream = new CryptoStream(resultStream, decryptor, CryptoStreamMode.Write))
-                    using (var plainStream = new MemoryStream(Convert.FromBase64String(obj)))
-                    {
-                        plainStream.CopyTo(aesStream);
-                    }
-
-                    result = (T) ByteArrayToObject(resultStream.ToArray());
-                }
-            }
-
             return result;
         }
-
 
         /// Taken from: https://stackoverflow.com/a/10502856
         private static byte[] ObjectToByteArray(object obj)
