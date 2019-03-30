@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.Encrypt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.Encryption.Tests", "test\EntityFrameworkCore.Encryption.Tests\EntityFrameworkCore.Encryption.Tests.csproj", "{A8069360-E561-43CA-A6E6-12068D9E7A52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.Encryption.KeyGenerator", "src\EntityFrameworkCore.Encryption.KeyGenerator\EntityFrameworkCore.Encryption.KeyGenerator.csproj", "{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3CFE0737-493E-4C50-A755-CE097C188EF9} = {500748F2-EFA4-4590-949E-ED14174F8D57}
 		{A8069360-E561-43CA-A6E6-12068D9E7A52} = {429E0DEE-0755-4EE1-BA54-2553BE4A07F3}
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB} = {500748F2-EFA4-4590-949E-ED14174F8D57}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3CFE0737-493E-4C50-A755-CE097C188EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,5 +55,17 @@ Global
 		{A8069360-E561-43CA-A6E6-12068D9E7A52}.Release|x64.Build.0 = Release|Any CPU
 		{A8069360-E561-43CA-A6E6-12068D9E7A52}.Release|x86.ActiveCfg = Release|Any CPU
 		{A8069360-E561-43CA-A6E6-12068D9E7A52}.Release|x86.Build.0 = Release|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Debug|x64.Build.0 = Debug|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x64.ActiveCfg = Release|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x64.Build.0 = Release|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
