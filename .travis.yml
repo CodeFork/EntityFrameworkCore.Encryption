@@ -1,7 +1,7 @@
 language: csharp
 mono: none
 os: linux
-dist: trusty
+dist: bionic
 dotnet: 2.2.0
 script:
 - dotnet build src/EntityFrameworkCore.Encryption -c Release
