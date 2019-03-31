@@ -26,27 +26,34 @@ namespace EntityFrameworkCore.Encryption.TestProject
 
             context.Database.Migrate();
             
-            /* context.Blogs.Add(new Blog
+            context.Blogs.Add(new Blog
             {
-                Url = "https://google.de", BlogId = 2, Rating = 2, Posts = new[]
+                Url = "https://google.de", BlogId = new Random().Next(), Rating = 2, Posts = new[]
                 {
                     new Post
                     {
                         Title = "Hello World",
                         Content = "This is only a test",
-                        PostId = 2
+                        PostId = new Random().Next()
                     }
                 }.ToList()
             });
             
             
-            context.SaveChanges(); */
+            context.SaveChanges();
 
             var posts = context.Posts.ToList();
 
             foreach (var post in posts)
             {
                 Console.WriteLine($"Post {post.PostId} {post.Title} {post.Content}");
+            }
+            
+            var blogs = context.Blogs.ToList();
+
+            foreach (var blog in blogs)
+            {
+                Console.WriteLine($"Blog {blog.BlogId} {blog.Rating}");
             }
         }
     }

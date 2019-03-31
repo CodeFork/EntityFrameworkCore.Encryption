@@ -15,26 +15,29 @@ namespace EntityFrameworkCore.Encryption.TestProject
 
         public BloggingContext()
         {
-            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=blogging.db");
+            // use sqlite
+            // optionsBuilder.UseSqlite("Data Source=blogging.db");
+
+            optionsBuilder.UseNpgsql(
+                "User ID=admin;Password=Test1234;Host=localhost;Port=25432;Database=encryption-blogging-db;Pooling=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            var postType = modelBuilder.Model.FindEntityType(typeof(Post));
-            foreach (var property in postType.GetProperties())
-            {
-                if (property.Name == nameof(Post.Title))
-                {
-                    property.SetValueConverter(new EncryptionValueConverter<string>(_service));
-                }
-            }
+            modelBuilder.Entity<Post>().Property(x => x.Title)
+                .HasConversion(new EncryptionValueConverter<string>(_service));
+
+            modelBuilder.Entity<Post>().Property(x => x.Content)
+                .HasConversion(new EncryptionValueConverter<string>(_service));
+
+            modelBuilder.Entity<Blog>().Property(x => x.Rating)
+                .HasConversion(new EncryptionValueConverter<int>(_service));
         }
     }
 }
