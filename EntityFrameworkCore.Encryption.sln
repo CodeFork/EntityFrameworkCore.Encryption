@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.Encrypt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.Encryption.KeyGenerator", "src\EntityFrameworkCore.Encryption.KeyGenerator\EntityFrameworkCore.Encryption.KeyGenerator.csproj", "{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.Encryption.TestProject", "src\EntityFrameworkCore.Encryption.TestProject\EntityFrameworkCore.Encryption.TestProject.csproj", "{F6BB3416-F16A-4AEC-8547-40A7C6179455}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 		{3CFE0737-493E-4C50-A755-CE097C188EF9} = {500748F2-EFA4-4590-949E-ED14174F8D57}
 		{A8069360-E561-43CA-A6E6-12068D9E7A52} = {429E0DEE-0755-4EE1-BA54-2553BE4A07F3}
 		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB} = {500748F2-EFA4-4590-949E-ED14174F8D57}
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455} = {500748F2-EFA4-4590-949E-ED14174F8D57}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3CFE0737-493E-4C50-A755-CE097C188EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -67,5 +70,17 @@ Global
 		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x64.Build.0 = Release|Any CPU
 		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x86.ActiveCfg = Release|Any CPU
 		{2D36E924-7CAA-4E57-AEC0-3DFC1E91ABDB}.Release|x86.Build.0 = Release|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Debug|x64.Build.0 = Debug|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Debug|x86.Build.0 = Debug|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Release|x64.ActiveCfg = Release|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Release|x64.Build.0 = Release|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Release|x86.ActiveCfg = Release|Any CPU
+		{F6BB3416-F16A-4AEC-8547-40A7C6179455}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
