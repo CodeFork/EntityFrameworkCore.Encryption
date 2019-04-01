@@ -58,4 +58,17 @@ namespace EntityFrameworkCore.Encryption
             return index > -1 ? encryptedString?.Substring(index + EncryptionPrefix.Length) : encryptedString;
         }
     }
+
+    public static class EncryptionValueConverterFactory
+    {
+        /// <summary>
+        /// Can be used to create a new instance of the value converter (used for reflection)
+        /// </summary>
+        /// <param name="encryptionService">the encryption service</param>
+        /// <returns></returns>
+        public static EncryptionValueConverter<TModel> CreateInstance<TModel>(IEncryptionService encryptionService)
+        {
+            return new EncryptionValueConverter<TModel>(encryptionService);
+        }
+    }
 }

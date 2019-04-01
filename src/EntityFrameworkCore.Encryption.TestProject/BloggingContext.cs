@@ -30,7 +30,9 @@ namespace EntityFrameworkCore.Encryption.TestProject
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Post>().Property(x => x.Title)
+            modelBuilder.ApplyEncryption(_service);
+
+            /*modelBuilder.Entity<Post>().Property(x => x.Title)
                 .HasConversion(new EncryptionValueConverter<string>(_service));
 
             modelBuilder.Entity<Post>().Property(x => x.Content)
@@ -38,6 +40,9 @@ namespace EntityFrameworkCore.Encryption.TestProject
 
             modelBuilder.Entity<Blog>().Property(x => x.Rating)
                 .HasConversion(new EncryptionValueConverter<int>(_service));
+            
+            modelBuilder.Entity<Category>().Property(x => x.Name)
+                .HasConversion(new EncryptionValueConverter<string>(_service));*/
         }
     }
 }
