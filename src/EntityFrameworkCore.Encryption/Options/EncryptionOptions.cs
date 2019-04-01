@@ -1,4 +1,4 @@
-namespace EntityFrameworkCore.Encryption
+namespace EntityFrameworkCore.Encryption.Options
 {
     public class EncryptionOptions
     {

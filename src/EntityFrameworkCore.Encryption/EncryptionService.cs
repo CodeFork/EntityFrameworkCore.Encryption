@@ -2,6 +2,8 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
+using EntityFrameworkCore.Encryption.Exceptions;
+using EntityFrameworkCore.Encryption.Options;
 using Microsoft.Extensions.Options;
 
 namespace EntityFrameworkCore.Encryption

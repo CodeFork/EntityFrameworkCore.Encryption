@@ -1,5 +1,7 @@
 using System;
 using System.Text;
+using EntityFrameworkCore.Encryption.Exceptions;
+using EntityFrameworkCore.Encryption.Options;
 using Microsoft.Extensions.Options;
 using Xunit;
 

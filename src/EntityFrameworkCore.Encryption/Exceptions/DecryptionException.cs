@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace EntityFrameworkCore.Encryption
+namespace EntityFrameworkCore.Encryption.Exceptions
 {
     public class DecryptionException : InvalidOperationException
     {
