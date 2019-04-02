@@ -7,6 +7,7 @@ script:
 - dotnet build src/EntityFrameworkCore.Encryption -c Release
 - "/bin/bash -c 'cd ./test/EntityFrameworkCore.Encryption.Tests && ./run_tests.sh'"
 - dotnet pack src/EntityFrameworkCore.Encryption -c Release
+- echo $TRAVIS_TAG
 deploy:
   skip_cleanup: true
   provider: script
