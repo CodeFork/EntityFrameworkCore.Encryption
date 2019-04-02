@@ -13,7 +13,7 @@ If used in production, it goes without saying that you should create a backup of
 using it.
 
 # Setup / Usage
-I'll add a NuGet-Package soon. Until then, it is required to clone and reference the project. 
+You can install the library via the NuGet package `EntityFrameworkCore.Encryption` easily. However, if you want to use the KeyGenerator, it is required to clone the source. 
 
 ```
     $ git clone https://github.com/vbrosch/EntityFrameworkCore.Encryption.git
