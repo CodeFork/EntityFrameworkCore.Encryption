@@ -4,6 +4,7 @@ using System.Linq;
 using EntityFrameworkCore.Encryption.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EntityFrameworkCore.Encryption.TestProject
@@ -14,16 +15,15 @@ namespace EntityFrameworkCore.Encryption.TestProject
         {
             var services = new ServiceCollection();
 
-            services.Configure<EncryptionOptions>(opt =>
+            services.AddDbContext<BloggingContext>();
+
+            services.AddDatabaseEncryption(new EncryptionOptions
             {
-                opt.Key = "Ha7d31+5tnLm7QrWyEBis7iXb7bcMdzFGp6DSltH+RI=";
-                opt.InitializationVector = "P6pYi+oyPqpfZxfdYkwAWQ==";
+                InitializationVector = "P6pYi+oyPqpfZxfdYkwAWQ==",
+                Key = "Ha7d31+5tnLm7QrWyEBis7iXb7bcMdzFGp6DSltH+RI="
             });
 
             services.AddOptions();
-            services.AddTransient<IEncryptionService, EncryptionService>();
-            services.AddTransient<IEncryptionMigrator, EncryptionMigrator>();
-            services.AddDbContext<BloggingContext>();
 
             var context = services.BuildServiceProvider().GetRequiredService<BloggingContext>();
 

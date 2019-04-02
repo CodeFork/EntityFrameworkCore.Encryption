@@ -29,20 +29,7 @@ namespace EntityFrameworkCore.Encryption.TestProject
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.ApplyEncryption(_service);
-
-            /*modelBuilder.Entity<Post>().Property(x => x.Title)
-                .HasConversion(new EncryptionValueConverter<string>(_service));
-
-            modelBuilder.Entity<Post>().Property(x => x.Content)
-                .HasConversion(new EncryptionValueConverter<string>(_service));
-
-            modelBuilder.Entity<Blog>().Property(x => x.Rating)
-                .HasConversion(new EncryptionValueConverter<int>(_service));
-            
-            modelBuilder.Entity<Category>().Property(x => x.Name)
-                .HasConversion(new EncryptionValueConverter<string>(_service));*/
         }
     }
 }
