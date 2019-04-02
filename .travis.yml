@@ -4,17 +4,16 @@ os: linux
 dist: bionic
 dotnet: 2.2.105
 script:
-- dotnet build src/EntityFrameworkCore.Encryption -c Release
-- "/bin/bash -c 'cd ./test/EntityFrameworkCore.Encryption.Tests && ./run_tests.sh'"
-- dotnet pack src/EntityFrameworkCore.Encryption -c Release
-- echo $TRAVIS_TAG
+  - dotnet build src/EntityFrameworkCore.Encryption -c Release
+  - "/bin/bash -c 'cd ./test/EntityFrameworkCore.Encryption.Tests && ./run_tests.sh'"
+  - dotnet pack src/EntityFrameworkCore.Encryption -c Release
+  - echo $TRAVIS_TAG
 deploy:
   skip_cleanup: true
   provider: script
   script: dotnet nuget push src/EntityFrameworkCore.Encryption/bin/Release/EntityFrameworkCore.Encryption.*.nupkg --api-key $NUGET_API_KEY
   on:
     tags: true
-    condition: "$TRAVIS_TAG =~ ^(\\d+\\.)?(\\d+\\.)?(\\*|\\d+)$"
 env:
   global:
     secure: dHNJNVArzL+GjWWhWlNw0VfltDwnd10hp3YqzTYltBy/cUWostBmPCzX0TeL/iube5dspUh6TwcQtBHuKfTLgxLnu+J0nk07PPOE/AhOoUimATstLepdZZrSOb2s5nQh5SCRjLG9Rz7dF/k2zsNRHWzU9TeGIRz+agsQi8nyP0p0Pkvfpz1dPJ0umylL5mqTinm5T3+NC5vCkBu3lBXzm+mBpGtafTPrHcDFa4jMs3BgfATBQplA6Q8EcPHwvJACW2zYRyc3xKL2bjxzG0TcfmcLB3efQ7TyyWCdv4yme3HilTErc7WuukUV8lqNAu+hsZFvsrUjvvEaXKT1URJI/G5bE+hwnPlFs+JVRj1ooRL8kjWw42Z29ZIXGWMFEx81M45ur8ALjRzR1bnWfQH2QyvVgzg0fYmnTrPyS3oUA1BfgACZQM1+ns4hyBXuejk57eeNs8zCxkAgSB2xRebwLhMu5ayIKrFIBLM/z59jqUXzcG5myD+yYmWcGcWkRTZg0BBGtMVPT34r5rjfDO9zBdxO3NZbVxe2K9V/DK/BKEEcLLuQ6OB6e4sqIokOnVj5JpyrL+iKjuNpKdHOlG2b6rXgqeAKy6QYn4afSHQpv+EBlvZr1ih9M0vhg0yAz+d8AFaSOg7Ey2j0bJqhMSH4dDYL/aWyt56RxdMxCmk+xfU=
