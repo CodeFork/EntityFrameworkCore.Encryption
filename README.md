@@ -1,6 +1,7 @@
 # EntityFrameworkCore.Encryption
 
 [![Build Status](https://travis-ci.org/vbrosch/EntityFrameworkCore.Encryption.svg?branch=master)](https://travis-ci.org/vbrosch/EntityFrameworkCore.Encryption)
+[![NuGet version](https://badge.fury.io/nu/EntityFrameworkCore.Encryption.svg)](https://badge.fury.io/nu/EntityFrameworkCore.Encryption)
 
 An encryption layer for EntityFrameworkCore. It can be used to encrypt entities in your database which may be required to
 be GDPR compliant or due to privacy concerns. It's based on `AES-256` and using the internal AES implementation of .NET Core.
