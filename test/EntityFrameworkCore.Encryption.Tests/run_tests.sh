@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ./run_unit_test.sh
 unit_test_result=$?
