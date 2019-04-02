@@ -151,3 +151,7 @@ Afterwards, you pass in the `DbContext` object of the database that should be en
 
 That's it. The `EncryptDatabase(DbContext)` function will now automatically encrypt all the data in the database. However,
 this function is idempotent. Meaning that it would not encrypt already encrypted data twice.
+
+# Known issues
+
+* At least on sqlite Provider, seeding with `modelBuilder.Entity<>.HasData()` does not work and throws a `NullReferenceException`

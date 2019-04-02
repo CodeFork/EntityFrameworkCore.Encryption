@@ -5,4 +5,4 @@ dist: bionic
 dotnet: 2.2.105
 script:
 - dotnet build src/EntityFrameworkCore.Encryption -c Release
-- dotnet test test/EntityFrameworkCore.Encryption.Tests
+- /bin/sh -c 'cd ./test/EntityFrameworkCore.Encryption.Tests && ./run_tests.sh' 
